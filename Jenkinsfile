@@ -1,10 +1,25 @@
 pipeline{
     agent any
-    stages{
-        stage("SCM"){
-            steps{
-               echo "job ran.....again and again"
+    tools {
+  maven 'Maven'
+}
+stages{
+        stage("Maven Build"){
+            when{
+                branch 'develop'
             }
-        }
-    }
+              steps{
+                  "mvn clean package"
+              }
+            }
+            stage("Sonar Analysis"){
+                when{
+                    branch 'uat'
+                }
+                steps{
+                    echo "sonar scanning"
+                }
+            }
+     }
+    
 }
