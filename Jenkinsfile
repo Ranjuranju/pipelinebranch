@@ -6,7 +6,7 @@ pipeline{
 stages{
         stage("Maven Build"){
             when{
-                branch "develop"
+                branch 'develop'
             }
               steps{
                   "mvn clean package"
@@ -14,7 +14,7 @@ stages{
             }
             stage("Sonar Analysis"){
                 when{
-                    branch "uat"
+                    branch 'uat'
                 }
                 steps{
                     echo "sonar scanning"
