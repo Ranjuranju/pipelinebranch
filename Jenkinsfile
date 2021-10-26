@@ -9,7 +9,7 @@ stages{
                 branch "develop"
             }
               steps{
-                  "mvn cleanpackage"
+                  "mvn clean package"
               }
             }
             stage("Sonar Analysis"){
