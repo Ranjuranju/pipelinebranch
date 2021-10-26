@@ -8,6 +8,14 @@ stages{
             when{
                 branch 'develop'
             }
+
+        }
+     options {
+      buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '1', numToKeepStr: '5')
+}
+
+    }
+
               steps{
                   "mvn clean package"
               }
@@ -22,4 +30,5 @@ stages{
             }
      }
     
+
 }
